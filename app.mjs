@@ -28,7 +28,7 @@ mongoose.connect(DB).then(() => console.log('DB connection successfull'));
 const app = express();
 
 app.use(
-  cors({ origin: 'http://localhost:5173', credentials: true, secure: false })
+  cors({ origin: 'http://localhost:5173', credentials: true, secure: true })
 );
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
