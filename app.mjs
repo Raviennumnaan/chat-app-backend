@@ -29,10 +29,14 @@ const app = express();
 
 app.use(
   cors({
-    origin: 'https://snappy-chat-app-ravi.netlify.app/',
+    origin: 'https://snappy-chat-app-ravi.netlify.app',
     credentials: true,
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    exposedHeaders: ['Content-Length'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
   })
 );
+
 app.use(express.json());
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(
