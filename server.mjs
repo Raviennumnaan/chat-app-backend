@@ -10,7 +10,10 @@ process.on('uncaughtException', err => {
 
 const server = createServer(app);
 const io = new Server(server, {
-  cors: { origin: 'http://localhost:5173', credentials: true },
+  cors: {
+    origin: 'https://snappy-chat-app-ravi.netlify.app/',
+    credentials: true,
+  },
 });
 
 const port = process.env.PORT || 3000;
