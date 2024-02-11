@@ -31,9 +31,6 @@ app.use(
   cors({
     origin: 'https://snappy-chat-app-ravi.netlify.app',
     credentials: true,
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    exposedHeaders: ['Content-Length'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
   })
 );
 
