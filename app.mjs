@@ -29,7 +29,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: 'https://snappy-chat-app-ravi.netlify.app',
+    origin: process.env.FRONTEND_URL,
     credentials: true,
   })
 );
@@ -43,11 +43,8 @@ app.use(
     resave: false,
     store: MongoStore.create({ mongoUrl: DB }),
     cookie: {
-      httpOnly: true,
       maxAge: 60 * 24 * 60 * 60 * 1000,
       path: '/',
-      sameSite: 'none',
-      secure: true,
     },
   })
 );
