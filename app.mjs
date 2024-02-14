@@ -47,6 +47,7 @@ app.use(
       path: '/',
       sameSite: 'none',
       secure: true,
+      domain: process.env.FRONTEND_DOMAIN,
     },
   })
 );
