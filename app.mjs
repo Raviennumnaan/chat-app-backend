@@ -45,19 +45,14 @@ app.use(
     cookie: {
       maxAge: 60 * 24 * 60 * 60 * 1000,
       path: '/',
+      sameSite: 'none',
+      // secure: true,
     },
   })
 );
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.get('/', function (req, res) {
-  req.session.visited = true;
-  console.log(req.session);
-  console.log(req.session.id);
-  res.sendStatus(200);
-});
 
 // Routes
 app.use('/api/auth', authRouter);
