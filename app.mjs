@@ -43,8 +43,8 @@ app.use(
     cookie: {
       maxAge: 60 * 24 * 60 * 60 * 1000,
       path: '/',
-      // sameSite: 'none',
-      // secure: true,
+      sameSite: 'none',
+      secure: true,
       // domain: process.env.FRONTEND_DOMAIN,
       signed: true,
     },
