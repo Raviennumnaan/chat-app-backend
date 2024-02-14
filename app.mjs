@@ -57,6 +57,7 @@ app.use(passport.session());
 
 app.use((req, res, next) => {
   console.log('Credentials', req.credentials);
+  console.log(req);
   next();
 });
 
