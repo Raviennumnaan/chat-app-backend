@@ -2,7 +2,6 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import MongoStore from 'connect-mongo';
 
@@ -35,7 +34,6 @@ app.use(
 );
 
 app.use(express.json());
-app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
@@ -45,21 +43,16 @@ app.use(
     cookie: {
       maxAge: 60 * 24 * 60 * 60 * 1000,
       path: '/',
-      sameSite: 'none',
-      secure: true,
-      domain: process.env.FRONTEND_DOMAIN,
+      // sameSite: 'none',
+      // secure: true,
+      // domain: process.env.FRONTEND_DOMAIN,
+      signed: true,
     },
   })
 );
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-app.use((req, res, next) => {
-  console.log('Credentials', req.credentials);
-  console.log(req);
-  next();
-});
 
 // Routes
 app.use('/api/auth', authRouter);
