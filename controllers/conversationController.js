@@ -27,6 +27,8 @@ export const createConversation = catchAsync(async function (req, res, next) {
     participants: participants,
   });
 
+  await newConversation.populate('participants');
+
   res.status(201).json({ status: 'success', data: newConversation });
 });
 
