@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { isAuth } from '../controllers/authContoller.mjs';
+import { isAuth } from '../controllers/authContoller.js';
 import {
   createMessage,
   getConversationMessages,
-} from '../controllers/messageController.mjs';
+} from '../controllers/messageController.js';
 
 const router = Router();
 

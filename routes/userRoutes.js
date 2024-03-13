@@ -4,8 +4,8 @@ import {
   searchUser,
   updatePassword,
   updateUser,
-} from '../controllers/userController.mjs';
-import { isAuth } from '../controllers/authContoller.mjs';
+} from '../controllers/userController.js';
+import { isAuth } from '../controllers/authContoller.js';
 
 const router = Router();
 

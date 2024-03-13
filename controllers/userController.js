@@ -1,7 +1,7 @@
-import User from '../model/userModel.mjs';
-import AppError from '../utils/appError.mjs';
-import catchAsync from '../utils/catchAsync.mjs';
-import { comparePassword } from '../utils/helpers.mjs';
+import User from '../model/userModel.js';
+import AppError from '../utils/appError.js';
+import catchAsync from '../utils/catchAsync.js';
+import { comparePassword } from '../utils/helpers.js';
 
 export const getAllUsers = catchAsync(async function (req, res, next) {
   const users = await User.find();

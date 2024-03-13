@@ -1,6 +1,6 @@
-import Conversation from '../model/conversationModel.mjs';
-import AppError from '../utils/appError.mjs';
-import catchAsync from '../utils/catchAsync.mjs';
+import Conversation from '../model/conversationModel.js';
+import AppError from '../utils/appError.js';
+import catchAsync from '../utils/catchAsync.js';
 
 export const createConversation = catchAsync(async function (req, res, next) {
   const { participants } = req.body;

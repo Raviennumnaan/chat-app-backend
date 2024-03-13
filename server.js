@@ -1,6 +1,6 @@
 import { Server } from 'socket.io';
-import app from './app.mjs';
 import { createServer } from 'http';
+import app from './app.js';
 
 process.on('uncaughtException', err => {
   console.log('UNHANDLED EXCEPTION: ❌ Shutting down...');

@@ -1,7 +1,7 @@
 import mongoose, { Schema } from 'mongoose';
 import validator from 'validator';
-import { hashPassword } from '../utils/helpers.mjs';
-import { MULTIAVATAR_API_URL } from '../utils/constants.mjs';
+import { hashPassword } from '../utils/helpers.js';
+import { MULTIAVATAR_API_URL } from '../utils/constants.js';
 
 const userSchema = new Schema({
   username: {

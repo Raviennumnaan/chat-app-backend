@@ -1,4 +1,4 @@
-import AppError from '../utils/appError.mjs';
+import AppError from '../utils/appError.js';
 
 const handleCastErrorDB = err => {
   const message = `Invalid ${err.path}: ${err.value}`;
@@ -24,6 +24,12 @@ const handleValidationErrorDB = err => {
 
   return new AppError(message, 400);
 };
+
+const handleJWTError = () =>
+  new AppError('Invalid token. Please log in again', 401);
+
+const handleJWTExpiry = () =>
+  new AppError('Token expired. Please log in again!', 401);
 
 const sendErrorDev = (err, res) => {
   res.status(err.statusCode).json({
@@ -65,6 +71,9 @@ export default (err, req, res, next) => {
 
     if (newError.name === 'ValidationError')
       newError = handleValidationErrorDB(newError);
+
+    if (newError.name === 'JsonWebTokenError') newError = handleJWTError();
+    if (newError.name === 'TokenExpiredError') newError = handleJWTExpiry();
 
     sendErrorProduction(newError, res);
   }
